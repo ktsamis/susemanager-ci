@@ -11,8 +11,10 @@ def deployed = false
 pipeline {
 
     parameters {
-        string(defaultValue: 'Manager-4.0', description: 'Testsuite GitHub branch: It should match the value at the code level', name: 'testsuite_branch')
+        // Note: We need to define this variable manually in our Jenkins configuration (to select the version we want to test)
+        // string(defaultValue: 'Manager-4.0', name: 'testsuite_branch')
         string(defaultValue: 'ktsamis@suse.de', description: 'Email address to be used as recipient for the report', name: 'mailto')
+        text(name: 'mu_repositories', defaultValue: '{"sle-client" : { "salt" : "repo_url" , "traditional" : "repo_url" }}', description: 'Salt & Traditional MU Repositories for each client, in json format')
     }
 
     environment {
@@ -37,29 +39,25 @@ pipeline {
             }
         }
 
-        stage('Core - Setup') {
+        stage('SUSE Manager Setup') {
             steps {
                 script { env.deployed = true }
-                sh "TESTSUITE_SET=core bash jenkins-test-runner.sh ${params.sumaform_env}"
+                export_command = "APPEND_BASHRC=\"\$APPEND_BASHRC;export mu_repositories='${params.mu_repositories}'\""
+                sh "echo ${export_command} >> ${params.sumaform_env}"
+                sh "TESTSUITE_SET=qam_core bash jenkins-test-runner.sh ${params.sumaform_env}"
             }
         }
 
-        stage('Core - Generate features') {
+        stage('Initialize clients') {
             steps {
-                sh "TESTSUITE_SET=generate_feature RAKE_TASK=parallel bash jenkins-test-runner.sh ${params.sumaform_env}"
+                sh "TESTSUITE_SET=qam_init_clients RAKE_TASK=parallel bash jenkins-test-runner.sh ${params.sumaform_env}"
             }
         }
 
-        stage('Core - Initialize clients') {
+        stage('Smoke tests') {
             steps {
-                sh "TESTSUITE_SET=init_clients RAKE_TASK=parallel bash jenkins-test-runner.sh ${params.sumaform_env}"
-            }
-        }
-
-        stage('Secondary features') {
-            steps {
-                sh "TESTSUITE_SET=secondary bash jenkins-test-runner.sh ${params.sumaform_env} ||:"
-                sh "TESTSUITE_SET=secondary_parallelizable RAKE_TASK=parallel bash jenkins-test-runner.sh ${params.sumaform_env}"
+                sh "TESTSUITE_SET=generate_smoke_tests RAKE_TASK=utils bash jenkins-test-runner.sh ${params.sumaform_env}"
+                sh "TESTSUITE_SET=qam_smoke_tests RAKE_TASK=parallel bash jenkins-test-runner.sh ${params.sumaform_env}"
             }
         }
     }
