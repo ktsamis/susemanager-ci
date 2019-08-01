@@ -42,7 +42,7 @@ pipeline {
         stage('SUSE Manager Setup') {
             steps {
                 script { env.deployed = true }
-                def export_command = "APPEND_BASHRC=\"\$APPEND_BASHRC;export mu_repositories='${params.mu_repositories}'\""
+                export_command = "APPEND_BASHRC=\"\$APPEND_BASHRC;export mu_repositories='${params.mu_repositories}'\""
                 sh "echo ${export_command} >> ${params.sumaform_env}"
                 sh "TESTSUITE_SET=qam_core bash jenkins-test-runner.sh ${params.sumaform_env}"
             }
