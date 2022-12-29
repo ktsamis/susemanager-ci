@@ -353,369 +353,369 @@ module "proxy" {
 
 }
 
-module "sles12sp4-client" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles12sp4"
-  image              = "sles12sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:a8"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle12sp4-client_additional_repos
-
-}
-
-module "sles12sp5-client" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles12sp5"
-  image              = "sles12sp5o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:a9"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle12sp5-client_additional_repos
-
-}
-
-module "sles15sp1-client" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles15sp1"
-  image              = "sles15sp1o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:ab"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp1-client_additional_repos
-
-}
-
-module "sles15sp2-client" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles15sp2"
-  image              = "sles15sp2o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:ac"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp2-client_additional_repos
-
-}
-
-module "sles15sp3-client" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles15sp3"
-  image              = "sles15sp3o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:ad"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp3-client_additional_repos
-
-}
-
-module "sles15sp4-client" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "cli-sles15sp4"
-  image              = "sles15sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:ae"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp4-client_additional_repos
-
-}
-
-module "centos7-client" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/client"
-  base_configuration = module.base_res.configuration
-  product_version    = "4.3-released"
-  name               = "cli-centos7"
-  image              = "centos7o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:af"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_register           = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //ceos7-client_additional_repos
-
-}
-
-module "sles12sp4-minion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles12sp4"
-  image              = "sles12sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b0"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle12sp4-minion_additional_repos
-
-}
-
-module "sles12sp5-minion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles12sp5"
-  image              = "sles12sp5o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b1"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle12sp5-minion_additional_repos
-
-}
-
-module "sles15sp1-minion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles15sp1"
-  image              = "sles15sp1o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b3"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp1-minion_additional_repos
-
-}
-
-module "sles15sp2-minion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles15sp2"
-  image              = "sles15sp2o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b4"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp2-minion_additional_repos
-
-}
-
-module "sles15sp3-minion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles15sp3"
-  image              = "sles15sp3o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b5"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp3-minion_additional_repos
-
-}
-
-module "sles15sp4-minion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "min-sles15sp4"
-  image              = "sles15sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b6"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //sle15sp4-minion_additional_repos
-
-}
-
-module "centos7-minion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_res.configuration
-  product_version    = "4.3-released"
-  name               = "min-centos7"
-  image              = "centos7o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b7"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //ceos7-minion_additional_repos
-
-}
-
-module "rocky8-minion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_res.configuration
-  product_version    = "4.3-released"
-  name               = "min-rocky8"
-  image              = "rocky8o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b8"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //rocky8-minion_additional_repos
-
-}
+// module "sles12sp4-client" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles12sp4"
+//   image              = "sles12sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:a8"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle12sp4-client_additional_repos
+//
+// }
+//
+// module "sles12sp5-client" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles12sp5"
+//   image              = "sles12sp5o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:a9"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle12sp5-client_additional_repos
+//
+// }
+//
+// module "sles15sp1-client" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles15sp1"
+//   image              = "sles15sp1o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:ab"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp1-client_additional_repos
+//
+// }
+//
+// module "sles15sp2-client" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles15sp2"
+//   image              = "sles15sp2o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:ac"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp2-client_additional_repos
+//
+// }
+//
+// module "sles15sp3-client" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles15sp3"
+//   image              = "sles15sp3o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:ad"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp3-client_additional_repos
+//
+// }
+//
+// module "sles15sp4-client" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-sles15sp4"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:ae"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp4-client_additional_repos
+//
+// }
+//
+// module "centos7-client" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/client"
+//   base_configuration = module.base_res.configuration
+//   product_version    = "4.3-released"
+//   name               = "cli-centos7"
+//   image              = "centos7o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:af"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_register           = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //ceos7-client_additional_repos
+//
+// }
+//
+// module "sles12sp4-minion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles12sp4"
+//   image              = "sles12sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b0"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle12sp4-minion_additional_repos
+//
+// }
+//
+// module "sles12sp5-minion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles12sp5"
+//   image              = "sles12sp5o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b1"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle12sp5-minion_additional_repos
+//
+// }
+//
+// module "sles15sp1-minion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles15sp1"
+//   image              = "sles15sp1o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b3"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp1-minion_additional_repos
+//
+// }
+//
+// module "sles15sp2-minion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles15sp2"
+//   image              = "sles15sp2o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b4"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp2-minion_additional_repos
+//
+// }
+//
+// module "sles15sp3-minion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles15sp3"
+//   image              = "sles15sp3o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b5"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp3-minion_additional_repos
+//
+// }
+//
+// module "sles15sp4-minion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-sles15sp4"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b6"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //sle15sp4-minion_additional_repos
+//
+// }
+//
+// module "centos7-minion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_res.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-centos7"
+//   image              = "centos7o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b7"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //ceos7-minion_additional_repos
+//
+// }
+//
+// module "rocky8-minion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_res.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-rocky8"
+//   image              = "rocky8o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b8"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //rocky8-minion_additional_repos
+//
+// }
 
 module "rocky9-minion" {
   providers = {
@@ -741,152 +741,152 @@ module "rocky9-minion" {
 
 }
 
-module "ubuntu1804-minion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "min-ubuntu1804"
-  image              = "ubuntu1804o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:b9"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //ubuntu1804-minion_additional_repos
-
-}
-
-module "ubuntu2004-minion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "min-ubuntu2004"
-  image              = "ubuntu2004o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:ba"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //ubuntu2004-minion_additional_repos
-
-}
-
-module "ubuntu2204-minion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "min-ubuntu2204"
-  image              = "ubuntu2204o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:bb"
-    memory             = 4096
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-// Debian 9 is not supported by 4.3
-
-module "debian10-minion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "min-debian10"
-  image              = "debian10o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:bd"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //debian10-minion_additional_repos
-
-}
-
-module "debian11-minion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "min-debian11"
-  image              = "debian11o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:be"
-    memory             = 4096
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //debian11-minion_additional_repos
-
-}
-
-module "opensuse154arm-minion" {
-  providers = {
-    libvirt = libvirt.overdrive4
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_arm.configuration
-  product_version    = "4.3-released"
-  name               = "min-opensuse154arm"
-  image              = "opensuse154armo"
-  provider_settings = {
-    mac                = "aa:b2:93:01:00:f4"
-    memory             = 2048
-    vcpu               = 2
-    xslt               = file("../../susemanager-ci/terracumber_config/tf_files/common/tune-aarch64.xslt")
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //opensuse154arm-minion_additional_repos
-
-}
+// module "ubuntu1804-minion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-ubuntu1804"
+//   image              = "ubuntu1804o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:b9"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //ubuntu1804-minion_additional_repos
+//
+// }
+//
+// module "ubuntu2004-minion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-ubuntu2004"
+//   image              = "ubuntu2004o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:ba"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //ubuntu2004-minion_additional_repos
+//
+// }
+//
+// module "ubuntu2204-minion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-ubuntu2204"
+//   image              = "ubuntu2204o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:bb"
+//     memory             = 4096
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// // Debian 9 is not supported by 4.3
+//
+// module "debian10-minion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-debian10"
+//   image              = "debian10o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:bd"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //debian10-minion_additional_repos
+//
+// }
+//
+// module "debian11-minion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-debian11"
+//   image              = "debian11o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:be"
+//     memory             = 4096
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //debian11-minion_additional_repos
+//
+// }
+//
+// module "opensuse154arm-minion" {
+//   providers = {
+//     libvirt = libvirt.overdrive4
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_arm.configuration
+//   product_version    = "4.3-released"
+//   name               = "min-opensuse154arm"
+//   image              = "opensuse154armo"
+//   provider_settings = {
+//     mac                = "aa:b2:93:01:00:f4"
+//     memory             = 2048
+//     vcpu               = 2
+//     xslt               = file("../../susemanager-ci/terracumber_config/tf_files/common/tune-aarch64.xslt")
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //opensuse154arm-minion_additional_repos
+//
+// }
 
 // Disabled until hexagon has the bootstrap process ready for SLE Micro
 //module "slemicro52-minion" {
@@ -962,146 +962,146 @@ module "oracle9-minion" {
 
 }
 
-module "sles12sp4-sshminion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles12sp4"
-  image              = "sles12sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d0"
-    memory             = 4096
-  }
-
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-  gpg_keys                = ["default/gpg_keys/galaxy.key"]
-}
-
-module "sles12sp5-sshminion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_old_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles12sp5"
-  image              = "sles12sp5o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d1"
-    memory             = 4096
-  }
-
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-  gpg_keys                = ["default/gpg_keys/galaxy.key"]
-}
-
-module "sles15sp1-sshminion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles15sp1"
-  image              = "sles15sp1o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d3"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-}
-
-module "sles15sp2-sshminion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles15sp2"
-  image              = "sles15sp2o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d4"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "sles15sp3-sshminion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles15sp3"
-  image              = "sles15sp3o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d5"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "sles15sp4-sshminion" {
-  providers = {
-    libvirt = libvirt.giediprime
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_new_sle.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-sles15sp4"
-  image              = "sles15sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d6"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "centos7-sshminion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_res.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-centos7"
-  image              = "centos7o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d7"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "rocky8-sshminion" {
-  providers = {
-    libvirt = libvirt.endor
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_res.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-rocky8"
-  image              = "rocky8o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d8"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
+// module "sles12sp4-sshminion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles12sp4"
+//   image              = "sles12sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d0"
+//     memory             = 4096
+//   }
+//
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//   gpg_keys                = ["default/gpg_keys/galaxy.key"]
+// }
+//
+// module "sles12sp5-sshminion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_old_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles12sp5"
+//   image              = "sles12sp5o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d1"
+//     memory             = 4096
+//   }
+//
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//   gpg_keys                = ["default/gpg_keys/galaxy.key"]
+// }
+//
+// module "sles15sp1-sshminion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles15sp1"
+//   image              = "sles15sp1o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d3"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+// }
+//
+// module "sles15sp2-sshminion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles15sp2"
+//   image              = "sles15sp2o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d4"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "sles15sp3-sshminion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles15sp3"
+//   image              = "sles15sp3o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d5"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "sles15sp4-sshminion" {
+//   providers = {
+//     libvirt = libvirt.giediprime
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_new_sle.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-sles15sp4"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d6"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "centos7-sshminion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_res.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-centos7"
+//   image              = "centos7o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d7"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "rocky8-sshminion" {
+//   providers = {
+//     libvirt = libvirt.endor
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_res.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-rocky8"
+//   image              = "rocky8o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d8"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
 
 module "rocky9-sshminion" {
   providers = {
@@ -1120,111 +1120,111 @@ module "rocky9-sshminion" {
   ssh_key_path            = "./salt/controller/id_rsa.pub"
 }
 
-module "ubuntu1804-sshminion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-ubuntu1804"
-  image              = "ubuntu1804o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:d9"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "ubuntu2004-sshminion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-ubuntu2004"
-  image              = "ubuntu2004o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:da"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "ubuntu2204-sshminion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-ubuntu2204"
-  image              = "ubuntu2204o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:db"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-// Debian 9 is not supported by 4.3
-
-module "debian10-sshminion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-debian10"
-  image              = "debian10o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:dd"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "debian11-sshminion" {
-  providers = {
-    libvirt = libvirt.mandalore
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_debian.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-debian11"
-  image              = "debian11o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:de"
-    memory             = 4096
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "opensuse154arm-sshminion" {
-  providers = {
-    libvirt = libvirt.overdrive4
-  }
-  source             = "./modules/sshminion"
-  base_configuration = module.base_arm.configuration
-  product_version    = "4.3-released"
-  name               = "minssh-opensuse154arm"
-  image              = "opensuse154armo"
-  provider_settings = {
-    mac                = "aa:b2:93:01:00:f5"
-    memory             = 2048
-    vcpu               = 2
-    xslt               = file("../../susemanager-ci/terracumber_config/tf_files/common/tune-aarch64.xslt")
-  }
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
+// module "ubuntu1804-sshminion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-ubuntu1804"
+//   image              = "ubuntu1804o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:d9"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "ubuntu2004-sshminion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-ubuntu2004"
+//   image              = "ubuntu2004o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:da"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "ubuntu2204-sshminion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-ubuntu2204"
+//   image              = "ubuntu2204o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:db"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// // Debian 9 is not supported by 4.3
+//
+// module "debian10-sshminion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-debian10"
+//   image              = "debian10o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:dd"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "debian11-sshminion" {
+//   providers = {
+//     libvirt = libvirt.mandalore
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_debian.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-debian11"
+//   image              = "debian11o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:de"
+//     memory             = 4096
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "opensuse154arm-sshminion" {
+//   providers = {
+//     libvirt = libvirt.overdrive4
+//   }
+//   source             = "./modules/sshminion"
+//   base_configuration = module.base_arm.configuration
+//   product_version    = "4.3-released"
+//   name               = "minssh-opensuse154arm"
+//   image              = "opensuse154armo"
+//   provider_settings = {
+//     mac                = "aa:b2:93:01:00:f5"
+//     memory             = 2048
+//     vcpu               = 2
+//     xslt               = file("../../susemanager-ci/terracumber_config/tf_files/common/tune-aarch64.xslt")
+//   }
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
 
 // Disabled until hexagon has the bootstrap process ready for SLE Micro
 //module "slemicro52-sshminion" {
@@ -1290,105 +1290,105 @@ module "oracle9-sshminion" {
 
 }
 
-module "sles12sp5-buildhost" {
-  providers = {
-    libvirt = libvirt.coruscant
-  }
-  source             = "./modules/build_host"
-  base_configuration = module.base_retail.configuration
-  product_version    = "4.3-released"
-  name               = "build-sles12sp5"
-  image              = "sles12sp5o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:a4"
-    memory             = 2048
-    vcpu               = 2
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "sles12sp5-terminal" {
-  providers = {
-    libvirt = libvirt.coruscant
-  }
-  source             = "./modules/pxe_boot"
-  base_configuration = module.base_retail.configuration
-  name               = "terminal-sles12sp5"
-  image              = "sles12sp5o"
-  provider_settings = {
-    memory             = 2048
-    vcpu               = 1
-    manufacturer       = "Supermicro"
-    product            = "X9DR3-F"
-  }
-}
-
-module "sles15sp4-buildhost" {
-  providers = {
-    libvirt = libvirt.coruscant
-  }
-  source             = "./modules/build_host"
-  base_configuration = module.base_retail.configuration
-  product_version    = "4.3-released"
-  name               = "build-sles15sp4"
-  image              = "sles15sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:a5"
-    memory             = 2048
-    vcpu               = 2
-  }
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-}
-
-module "sles15sp4-terminal" {
-  providers = {
-    libvirt = libvirt.coruscant
-  }
-  source             = "./modules/pxe_boot"
-  base_configuration = module.base_retail.configuration
-  name               = "terminal-sles15sp4"
-  image              = "sles15sp4o"
-  provider_settings = {
-    memory             = 2048
-    vcpu               = 2
-    manufacturer       = "HP"
-    product            = "ProLiant DL360 Gen9"
-  }
-}
-
-module "monitoring-server" {
-  providers = {
-    libvirt = libvirt.coruscant
-  }
-  source             = "./modules/minion"
-  base_configuration = module.base_retail.configuration
-  product_version    = "4.3-released"
-  name               = "monitoring"
-  image              = "sles15sp4o"
-  provider_settings = {
-    mac                = "aa:b2:92:42:00:a3"
-    memory             = 2048
-  }
-
-  server_configuration = {
-    hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
-  }
-  auto_connect_to_master  = false
-  use_os_released_updates = false
-  ssh_key_path            = "./salt/controller/id_rsa.pub"
-
-  //monitoring_additional_repos
-}
+// module "sles12sp5-buildhost" {
+//   providers = {
+//     libvirt = libvirt.coruscant
+//   }
+//   source             = "./modules/build_host"
+//   base_configuration = module.base_retail.configuration
+//   product_version    = "4.3-released"
+//   name               = "build-sles12sp5"
+//   image              = "sles12sp5o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:a4"
+//     memory             = 2048
+//     vcpu               = 2
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "sles12sp5-terminal" {
+//   providers = {
+//     libvirt = libvirt.coruscant
+//   }
+//   source             = "./modules/pxe_boot"
+//   base_configuration = module.base_retail.configuration
+//   name               = "terminal-sles12sp5"
+//   image              = "sles12sp5o"
+//   provider_settings = {
+//     memory             = 2048
+//     vcpu               = 1
+//     manufacturer       = "Supermicro"
+//     product            = "X9DR3-F"
+//   }
+// }
+//
+// module "sles15sp4-buildhost" {
+//   providers = {
+//     libvirt = libvirt.coruscant
+//   }
+//   source             = "./modules/build_host"
+//   base_configuration = module.base_retail.configuration
+//   product_version    = "4.3-released"
+//   name               = "build-sles15sp4"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:a5"
+//     memory             = 2048
+//     vcpu               = 2
+//   }
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+// }
+//
+// module "sles15sp4-terminal" {
+//   providers = {
+//     libvirt = libvirt.coruscant
+//   }
+//   source             = "./modules/pxe_boot"
+//   base_configuration = module.base_retail.configuration
+//   name               = "terminal-sles15sp4"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     memory             = 2048
+//     vcpu               = 2
+//     manufacturer       = "HP"
+//     product            = "ProLiant DL360 Gen9"
+//   }
+// }
+//
+// module "monitoring-server" {
+//   providers = {
+//     libvirt = libvirt.coruscant
+//   }
+//   source             = "./modules/minion"
+//   base_configuration = module.base_retail.configuration
+//   product_version    = "4.3-released"
+//   name               = "monitoring"
+//   image              = "sles15sp4o"
+//   provider_settings = {
+//     mac                = "aa:b2:92:42:00:a3"
+//     memory             = 2048
+//   }
+//
+//   server_configuration = {
+//     hostname = "suma-bv-43-pxy.mgr.prv.suse.net"
+//   }
+//   auto_connect_to_master  = false
+//   use_os_released_updates = false
+//   ssh_key_path            = "./salt/controller/id_rsa.pub"
+//
+//   //monitoring_additional_repos
+// }
 
 module "controller" {
   source             = "./modules/controller"
@@ -1410,13 +1410,13 @@ module "controller" {
   server_configuration = module.server.configuration
   proxy_configuration  = module.proxy.configuration
 
-  centos7_client_configuration    = module.centos7-client.configuration
-  centos7_minion_configuration    = module.centos7-minion.configuration
-  centos7_sshminion_configuration = module.centos7-sshminion.configuration
-
-  rocky8_minion_configuration    = module.rocky8-minion.configuration
-  rocky8_sshminion_configuration = module.rocky8-sshminion.configuration
-
+//   centos7_client_configuration    = module.centos7-client.configuration
+//   centos7_minion_configuration    = module.centos7-minion.configuration
+//   centos7_sshminion_configuration = module.centos7-sshminion.configuration
+//
+//   rocky8_minion_configuration    = module.rocky8-minion.configuration
+//   rocky8_sshminion_configuration = module.rocky8-sshminion.configuration
+//
   rocky9_minion_configuration    = module.rocky9-minion.configuration
   rocky9_sshminion_configuration = module.rocky9-sshminion.configuration
 
@@ -1425,60 +1425,60 @@ module "controller" {
 
   oracle9_minion_configuration    = module.oracle9-minion.configuration
   oracle9_sshminion_configuration = module.oracle9-sshminion.configuration
-
-  sle12sp4_client_configuration    = module.sles12sp4-client.configuration
-  sle12sp4_minion_configuration    = module.sles12sp4-minion.configuration
-  sle12sp4_sshminion_configuration = module.sles12sp4-sshminion.configuration
-
-  sle12sp5_client_configuration    = module.sles12sp5-client.configuration
-  sle12sp5_minion_configuration    = module.sles12sp5-minion.configuration
-  sle12sp5_sshminion_configuration = module.sles12sp5-sshminion.configuration
-
-  sle15sp1_client_configuration    = module.sles15sp1-client.configuration
-  sle15sp1_minion_configuration    = module.sles15sp1-minion.configuration
-  sle15sp1_sshminion_configuration = module.sles15sp1-sshminion.configuration
-
-  sle15sp2_client_configuration    = module.sles15sp2-client.configuration
-  sle15sp2_minion_configuration    = module.sles15sp2-minion.configuration
-  sle15sp2_sshminion_configuration = module.sles15sp2-sshminion.configuration
-
-  sle15sp3_client_configuration    = module.sles15sp3-client.configuration
-  sle15sp3_minion_configuration    = module.sles15sp3-minion.configuration
-  sle15sp3_sshminion_configuration = module.sles15sp3-sshminion.configuration
-
-  sle15sp4_client_configuration    = module.sles15sp4-client.configuration
-  sle15sp4_minion_configuration    = module.sles15sp4-minion.configuration
-  sle15sp4_sshminion_configuration = module.sles15sp4-sshminion.configuration
-
-  ubuntu1804_minion_configuration    = module.ubuntu1804-minion.configuration
-  ubuntu1804_sshminion_configuration = module.ubuntu1804-sshminion.configuration
-
-  ubuntu2004_minion_configuration    = module.ubuntu2004-minion.configuration
-  ubuntu2004_sshminion_configuration = module.ubuntu2004-sshminion.configuration
-
-  ubuntu2204_minion_configuration    = module.ubuntu2204-minion.configuration
-  ubuntu2204_sshminion_configuration = module.ubuntu2204-sshminion.configuration
-
-  debian10_minion_configuration    = module.debian10-minion.configuration
-  debian10_sshminion_configuration = module.debian10-sshminion.configuration
-
-  debian11_minion_configuration    = module.debian11-minion.configuration
-  debian11_sshminion_configuration = module.debian11-sshminion.configuration
-
-  opensuse154arm_minion_configuration    = module.opensuse154arm-minion.configuration
-  opensuse154arm_sshminion_configuration = module.opensuse154arm-sshminion.configuration
-
-// Disabled until hexagon has the bootstrap process ready for SLE Micro
-//  slemicro52_minion_configuration    = module.slemicro52-minion.configuration
-//  slemicro52_sshminion_configuration = module.slemicro52-sshminion.configuration
-
-  sle12sp5_buildhost_configuration = module.sles12sp5-buildhost.configuration
-  sle15sp4_buildhost_configuration = module.sles15sp4-buildhost.configuration
-
-  sle12sp5_terminal_configuration = module.sles12sp5-terminal.configuration
-  sle15sp4_terminal_configuration = module.sles15sp4-terminal.configuration
-
-  monitoringserver_configuration = module.monitoring-server.configuration
+//
+//   sle12sp4_client_configuration    = module.sles12sp4-client.configuration
+//   sle12sp4_minion_configuration    = module.sles12sp4-minion.configuration
+//   sle12sp4_sshminion_configuration = module.sles12sp4-sshminion.configuration
+//
+//   sle12sp5_client_configuration    = module.sles12sp5-client.configuration
+//   sle12sp5_minion_configuration    = module.sles12sp5-minion.configuration
+//   sle12sp5_sshminion_configuration = module.sles12sp5-sshminion.configuration
+//
+//   sle15sp1_client_configuration    = module.sles15sp1-client.configuration
+//   sle15sp1_minion_configuration    = module.sles15sp1-minion.configuration
+//   sle15sp1_sshminion_configuration = module.sles15sp1-sshminion.configuration
+//
+//   sle15sp2_client_configuration    = module.sles15sp2-client.configuration
+//   sle15sp2_minion_configuration    = module.sles15sp2-minion.configuration
+//   sle15sp2_sshminion_configuration = module.sles15sp2-sshminion.configuration
+//
+//   sle15sp3_client_configuration    = module.sles15sp3-client.configuration
+//   sle15sp3_minion_configuration    = module.sles15sp3-minion.configuration
+//   sle15sp3_sshminion_configuration = module.sles15sp3-sshminion.configuration
+//
+//   sle15sp4_client_configuration    = module.sles15sp4-client.configuration
+//   sle15sp4_minion_configuration    = module.sles15sp4-minion.configuration
+//   sle15sp4_sshminion_configuration = module.sles15sp4-sshminion.configuration
+//
+//   ubuntu1804_minion_configuration    = module.ubuntu1804-minion.configuration
+//   ubuntu1804_sshminion_configuration = module.ubuntu1804-sshminion.configuration
+//
+//   ubuntu2004_minion_configuration    = module.ubuntu2004-minion.configuration
+//   ubuntu2004_sshminion_configuration = module.ubuntu2004-sshminion.configuration
+//
+//   ubuntu2204_minion_configuration    = module.ubuntu2204-minion.configuration
+//   ubuntu2204_sshminion_configuration = module.ubuntu2204-sshminion.configuration
+//
+//   debian10_minion_configuration    = module.debian10-minion.configuration
+//   debian10_sshminion_configuration = module.debian10-sshminion.configuration
+//
+//   debian11_minion_configuration    = module.debian11-minion.configuration
+//   debian11_sshminion_configuration = module.debian11-sshminion.configuration
+//
+//   opensuse154arm_minion_configuration    = module.opensuse154arm-minion.configuration
+//   opensuse154arm_sshminion_configuration = module.opensuse154arm-sshminion.configuration
+//
+// // Disabled until hexagon has the bootstrap process ready for SLE Micro
+// //  slemicro52_minion_configuration    = module.slemicro52-minion.configuration
+// //  slemicro52_sshminion_configuration = module.slemicro52-sshminion.configuration
+//
+//   sle12sp5_buildhost_configuration = module.sles12sp5-buildhost.configuration
+//   sle15sp4_buildhost_configuration = module.sles15sp4-buildhost.configuration
+//
+//   sle12sp5_terminal_configuration = module.sles12sp5-terminal.configuration
+//   sle15sp4_terminal_configuration = module.sles15sp4-terminal.configuration
+//
+//   monitoringserver_configuration = module.monitoring-server.configuration
 }
 
 output "configuration" {
